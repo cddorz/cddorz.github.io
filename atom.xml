@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-28T07:07:30.431Z</updated>
+  <updated>2020-10-28T13:43:05.392Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2020/10/28/link/"/>
+    <id>http://example.com/2020/10/28/link/</id>
+    <published>2020-10-28T13:43:00.418Z</published>
+    <updated>2020-10-28T13:43:05.392Z</updated>
+    
+    <content type="html"><![CDATA[[{"class_name":"友情链接","class_desc":"那些人，那些事","link_list":[{"name":"YXR的blog","link":null,"avatar":"https://jerryc.me/image/avatar.png","descr":"今日事,今日畢"},{"name":"Hexo","link":"https://yangxiangrui.site/","avatar":"https://edu-1014.oss-cn-beijing.aliyuncs.com/TIM%E5%9B%BE%E7%89%8720200701200449.jpg","descr":"hxd，爱你"}]}]]]></content>
+    
+    
+      
+      
+    <summary type="html">[{&quot;class_name&quot;:&quot;友情链接&quot;,&quot;class_desc&quot;:&quot;那些人，那些事&quot;,&quot;link_list&quot;:[{&quot;name&quot;:&quot;YXR的blog&quot;,&quot;link&quot;:null,&quot;avatar&quot;:&quot;https://jerryc.me/image/avatar.png&quot;,&quot;desc</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>我的第一篇博客</title>
