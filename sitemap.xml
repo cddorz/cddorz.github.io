@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/link/index.html</loc>
+    <loc>https://cddorz.github.io/link/index.html</loc>
     
     <lastmod>2020-10-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://cddorz.github.io/categories/index.html</loc>
     
     <lastmod>2020-10-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://cddorz.github.io/tags/index.html</loc>
     
     <lastmod>2020-10-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2020/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://cddorz.github.io/2020/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2020-10-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2020/10/28/hello-world/</loc>
+    <loc>https://cddorz.github.io/2020/10/28/hello-world/</loc>
     
     <lastmod>2020-10-28</lastmod>
     
@@ -38,8 +38,8 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
-    <lastmod>2020-10-28</lastmod>
+    <loc>https://cddorz.github.io/</loc>
+    <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
