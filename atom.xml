@@ -6,7 +6,7 @@
   <link href="https://cddorz.github.io/atom.xml" rel="self"/>
   
   <link href="https://cddorz.github.io/"/>
-  <updated>2020-10-28T07:07:30.431Z</updated>
+  <updated>2020-10-29T08:57:59.076Z</updated>
   <id>https://cddorz.github.io/</id>
   
   <author>
@@ -17,11 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一天的心得</title>
+    <link href="https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/"/>
+    <id>https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/</id>
+    <published>2020-10-29T08:57:59.000Z</published>
+    <updated>2020-10-29T08:57:59.076Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>我的第一篇博客</title>
     <link href="https://cddorz.github.io/2020/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>https://cddorz.github.io/2020/10/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-10-28T07:03:58.000Z</published>
-    <updated>2020-10-28T07:07:30.431Z</updated>
+    <updated>2020-10-29T09:08:36.903Z</updated>
     
     <content type="html"><![CDATA[<p>#My first blog!</p>]]></content>
     
