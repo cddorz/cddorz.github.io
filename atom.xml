@@ -6,7 +6,7 @@
   <link href="https://cddorz.github.io/atom.xml" rel="self"/>
   
   <link href="https://cddorz.github.io/"/>
-  <updated>2020-10-29T08:57:59.076Z</updated>
+  <updated>2020-10-29T09:34:34.850Z</updated>
   <id>https://cddorz.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/"/>
     <id>https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/</id>
     <published>2020-10-29T08:57:59.000Z</published>
-    <updated>2020-10-29T08:57:59.076Z</updated>
+    <updated>2020-10-29T09:34:34.850Z</updated>
     
+    <content type="html"><![CDATA[<h3 id="First-step"><a href="#First-step" class="headerlink" title="First step"></a>First step</h3><p>​    一个晚上和一个白天的成果，初步搭建好了自己的博客，虽然挺累的，也算是走出舒适圈的第一步了，也第一次体验到了找bug的痛苦！！！</p><p>​    总结一下今天遇到的问题，希望可以帮助到同样有这些问题的人：</p><h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><p>​        1)、如果遇到你改了某个地方之后，登录你部属的网站发现十个空网站，那么问题应该是你_config.yml文件某个部署错了，可以先本地运行一下然后看看报错（今天问的一个巨佬，orz）。</p><p>​        2)、部署新东西或之后：</p><p>​                    所在文件夹用git命令：hexo g   hexo d</p><p>​        3)、hexo clean万能的命令，有时候刷新不出来新内容可以等到或者hexo clean。可以先在本地看看效果，如果本地效果出来了，那么就只是时间问题啦。</p><p>呜呜呜，第一篇blog，markdown很多语法还不熟悉，所以就先这样吧，害，以后会变得更强的！</p><p><em>少年鲜衣怒马， 不负韶华！！！！</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;First-step&quot;&gt;&lt;a href=&quot;#First-step&quot; class=&quot;headerlink&quot; title=&quot;First step&quot;&gt;&lt;/a&gt;First step&lt;/h3&gt;&lt;p&gt;​    一个晚上和一个白天的成果，初步搭建好了自己的博客，虽然挺累的，也算</summary>
+      
     
     
     
