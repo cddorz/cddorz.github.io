@@ -6,7 +6,7 @@
   <link href="https://cddorz.github.io/atom.xml" rel="self"/>
   
   <link href="https://cddorz.github.io/"/>
-  <updated>2020-10-29T13:51:17.108Z</updated>
+  <updated>2020-10-29T09:34:34.850Z</updated>
   <id>https://cddorz.github.io/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>SpringBoot入门（一）</title>
-    <link href="https://cddorz.github.io/2020/10/29/SpringBoot%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://cddorz.github.io/2020/10/29/SpringBoot%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/</id>
-    <published>2020-10-29T12:15:11.000Z</published>
-    <updated>2020-10-29T13:51:17.108Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="使用-idea-快速搭建-Spring-Boot"><a href="#使用-idea-快速搭建-Spring-Boot" class="headerlink" title="使用 idea 快速搭建 Spring Boot"></a>使用 idea 快速搭建 Spring Boot</h5><p>1、填写项目基本信息</p><p><img src="D:\java_code\截图\20181118095134665.png" alt="20181118095134665"></p><p>2、选择依赖</p><p><img src="D:\java_code\截图\20181117223605792.png" alt="20181117223605792"></p><p><img src="D:\java_code\截图\20181118103359434.png" alt="20181118103359434"></p><p>3、基本功能</p><ul><li><p>SpringbootApplication:一个带有main()方法的类，用于启动应用程序 </p></li><li><p>SpringbootApplicationTest:加载了一个使用Spring Boot字典配置功能的 Spring 应用程序上下文</p></li><li><p>application.properties：一个空的 properties 文件，可以根据需要添加配置属性</p></li><li><p>pom.xml： Maven 构建说明文件</p></li><li><p><img src="D:\java_code\截图\20181118100821722.png" alt="20181118100821722"></p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h5 id=&quot;使用-idea-快速搭建-Spring-Boot&quot;&gt;&lt;a href=&quot;#使用-idea-快速搭建-Spring-Boot&quot; class=&quot;headerlink&quot; title=&quot;使用 idea 快速搭建 Spring Boot&quot;&gt;&lt;/a&gt;使用 idea 快速搭建 S</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>一天的心得</title>
