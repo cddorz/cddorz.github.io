@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cddorz.github.io/link/index.html</loc>
+    
+    <lastmod>2020-11-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://cddorz.github.io/tags/index.html</loc>
     
     <lastmod>2020-11-02</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/</loc>
     
     <lastmod>2020-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cddorz.github.io/link/index.html</loc>
-    
-    <lastmod>2020-10-28</lastmod>
     
   </url>
   
