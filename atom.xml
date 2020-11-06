@@ -41,30 +41,6 @@
   </entry>
   
   <entry>
-    <title>Springboot自动装配原理</title>
-    <link href="https://cddorz.github.io/2020/11/04/Springboot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86/"/>
-    <id>https://cddorz.github.io/2020/11/04/Springboot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86/</id>
-    <published>2020-11-04T02:58:09.000Z</published>
-    <updated>2020-11-04T06:28:58.266Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><h5 id="自动配置："><a href="#自动配置：" class="headerlink" title="自动配置："></a>自动配置：</h5><p>pom.xml</p><ul><li>spring-boot-dependencies：核心依赖在父工程中</li></ul><p>启动器：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h5 id="启动器："><a href="#启动器：" class="headerlink" title="启动器："></a>启动器：</h5><ul><li><p>比如spring-boot-starter-web，会自动导入web环境所有依赖</p></li><li><p>需要使用什么功能，找到对应的启动器就可以了<code>start</code></p></li></ul><p>主程序：</p><ul><li><p>```java<br>//@SpringBootApplication:标注这是一个springboot的应用<br>@SpringBootApplication<br>public class DemoApplication {</p><pre><code>public static void main(String[] args) &#123;    //将springboot程序启动    SpringApplication.run(DemoApplication.class, args);&#125;</code></pre><p>}</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ ##### @SpringBootApplication:</span><br><span class="line"></span><br><span class="line">  作用：标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的主要方法来启动SpringBoot应用；</span><br><span class="line">  </span><br><span class="line">+ [参考文档]: https:&#x2F;&#x2F;dwz.cn&#x2F;P1N121RT</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;xml</span><br><span class="line">@ConfigurationProperties作用：将配置文件中配置的每一个属性的值，映射到这个组件中；告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定参数 prefix &#x3D; “person” : 将配置文件中的person下面的所有属性一一对应</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h4 id=&quot;原理：&quot;&gt;&lt;a href=&quot;#原理：&quot; class=&quot;headerlink&quot; title=&quot;原理：&quot;&gt;&lt;/a&gt;原理：&lt;/h4&gt;&lt;h5 id=&quot;自动配置：&quot;&gt;&lt;a href=&quot;#自动配置：&quot; class=&quot;headerlink&quot; title=&quot;自动配置：&quot;&gt;&lt;/a&gt;</summary>
-      
-    
-    
-    
-    <category term="Springboot" scheme="https://cddorz.github.io/categories/Springboot/"/>
-    
-    
-    <category term="Web框架" scheme="https://cddorz.github.io/tags/Web%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>青鸢面基大会</title>
     <link href="https://cddorz.github.io/2020/10/31/%E9%9D%92%E9%B8%A2%E9%9D%A2%E5%9F%BA%E5%A4%A7%E4%BC%9A/"/>
     <id>https://cddorz.github.io/2020/10/31/%E9%9D%92%E9%B8%A2%E9%9D%A2%E5%9F%BA%E5%A4%A7%E4%BC%9A/</id>

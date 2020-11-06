@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://cddorz.github.io/2020/11/04/Springboot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86/</loc>
-    
-    <lastmod>2020-11-04</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/</loc>
     
     <lastmod>2020-11-02</lastmod>
@@ -150,24 +143,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://cddorz.github.io/tags/Web%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2020-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
     <loc>https://cddorz.github.io/categories/Java/</loc>
-    <lastmod>2020-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://cddorz.github.io/categories/Springboot/</loc>
     <lastmod>2020-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
