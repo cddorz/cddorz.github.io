@@ -6,7 +6,7 @@
   <link href="https://cddorz.github.io/atom.xml" rel="self"/>
   
   <link href="https://cddorz.github.io/"/>
-  <updated>2020-11-07T14:36:54.381Z</updated>
+  <updated>2020-11-10T08:53:31.341Z</updated>
   <id>https://cddorz.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>少年二字，应与平庸相斥</title>
+    <link href="https://cddorz.github.io/2020/11/10/%E5%B0%91%E5%B9%B4%E4%BA%8C%E5%AD%97%EF%BC%8C%E5%BA%94%E4%B8%8E%E5%B9%B3%E5%BA%B8%E7%9B%B8%E6%96%A5/"/>
+    <id>https://cddorz.github.io/2020/11/10/%E5%B0%91%E5%B9%B4%E4%BA%8C%E5%AD%97%EF%BC%8C%E5%BA%94%E4%B8%8E%E5%B9%B3%E5%BA%B8%E7%9B%B8%E6%96%A5/</id>
+    <published>2020-11-10T08:49:30.000Z</published>
+    <updated>2020-11-10T08:53:31.341Z</updated>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://cddorz.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="少年" scheme="https://cddorz.github.io/tags/%E5%B0%91%E5%B9%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Java集合框架</title>
