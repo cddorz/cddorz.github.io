@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cddorz.github.io/link/index.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://cddorz.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://cddorz.github.io/2020/11/14/Linux%E7%9B%B8%E5%85%B3/</loc>
     
     <lastmod>2020-11-26</lastmod>
@@ -51,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://cddorz.github.io/link/index.html</loc>
-    
-    <lastmod>2020-11-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://cddorz.github.io/2020/10/31/%E9%9D%92%E9%B8%A2%E9%9D%A2%E5%9F%BA%E5%A4%A7%E4%BC%9A/</loc>
     
     <lastmod>2020-11-13</lastmod>
@@ -94,13 +101,6 @@
   
   <url>
     <loc>https://cddorz.github.io/2020/10/29/%E4%B8%80%E5%A4%A9%E7%9A%84%E5%BF%83%E5%BE%97/</loc>
-    
-    <lastmod>2020-11-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://cddorz.github.io/tags/index.html</loc>
     
     <lastmod>2020-11-02</lastmod>
     
