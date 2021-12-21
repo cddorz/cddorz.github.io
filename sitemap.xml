@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cddorz.github.io/2021/12/21/summary/</loc>
+    <loc>https://cddorz.github.io/2021/12/21/machine-learning/</loc>
     
     <lastmod>2021-12-21</lastmod>
     
@@ -221,14 +221,14 @@
   </url>
   
   <url>
-    <loc>https://cddorz.github.io/tags/token/</loc>
+    <loc>https://cddorz.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://cddorz.github.io/tags/%E5%B0%91%E5%B9%B4/</loc>
+    <loc>https://cddorz.github.io/tags/token/</loc>
     <lastmod>2021-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -243,6 +243,13 @@
   
   <url>
     <loc>https://cddorz.github.io/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2021-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cddorz.github.io/tags/%E5%B0%91%E5%B9%B4/</loc>
     <lastmod>2021-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -294,6 +301,13 @@
   
   <url>
     <loc>https://cddorz.github.io/categories/Java/</loc>
+    <lastmod>2021-12-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://cddorz.github.io/categories/AI/</loc>
     <lastmod>2021-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
