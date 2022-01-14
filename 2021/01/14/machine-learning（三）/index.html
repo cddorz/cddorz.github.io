@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>machine-learning（三） | HLY-Blog</title><meta name="keywords" content="Neural Network"><meta name="author" content="HLY"><meta name="copyright" content="HLY"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="神经网络1.1模型表示神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫激活单元，activation unit）采纳一些特征作为输出，并且根据本身的模型提供一个输出。下图是一个以逻辑回归模型作为自身学习模型的神经元示例，在神经网络中，参数又可被成为权重（weight）。   x_0 是偏置单元，一般每一层都会加入一个偏置单元（也称作偏置项）  （以下解释参见：ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="machine-learning（三）">
+<meta property="og:url" content="https://cddorz.github.io/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="HLY-Blog">
+<meta property="og:description" content="神经网络1.1模型表示神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫激活单元，activation unit）采纳一些特征作为输出，并且根据本身的模型提供一个输出。下图是一个以逻辑回归模型作为自身学习模型的神经元示例，在神经网络中，参数又可被成为权重（weight）。   x_0 是偏置单元，一般每一层都会加入一个偏置单元（也称作偏置项）  （以下解释参见：ht">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img0.baidu.com/it/u=728045523,3008166041&fm=26&fmt=auto">
+<meta property="article:published_time" content="2021-01-14T08:47:39.000Z">
+<meta property="article:modified_time" content="2022-01-14T12:41:13.614Z">
+<meta property="article:author" content="HLY">
+<meta property="article:tag" content="Neural Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img0.baidu.com/it/u=728045523,3008166041&fm=26&fmt=auto"><link rel="shortcut icon" href="/img/tubiao.jpg"><link rel="canonical" href="https://cddorz.github.io/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: {"text":"I,LOVE,YOU","fontSize":"15px"},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-14 20:41:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/clock/css/clock.css"/><link rel="stylesheet" href="/news/css/news.css"/><link rel="stylesheet" href="/css/1.css"/><link rel="stylesheet" href="/css/flipcountdown.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="HLY-Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/tubiao.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/-%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 清单|| fa fa-heartbeat</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img0.baidu.com/it/u=728045523,3008166041&amp;fm=26&amp;fmt=auto)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">HLY-Blog</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/-%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 清单|| fa fa-heartbeat</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">machine-learning（三）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-14T08:47:39.000Z" title="发表于 2021-01-14 16:47:39">2021-01-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-14T12:41:13.614Z" title="更新于 2022-01-14 20:41:13">2022-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><h3 id="1-1模型表示"><a href="#1-1模型表示" class="headerlink" title="1.1模型表示"></a>1.1模型表示</h3><p>神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫激活单元，<strong>activation unit</strong>）采纳一些特征作为输出，并且根据本身的模型提供一个输出。下图是一个以逻辑回归模型作为自身学习模型的神经元示例，在神经网络中，参数又可被成为权重（<strong>weight</strong>）。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://s2.loli.net/2022/01/14/AMe5Swam6h9kWf1.jpg" alt="示例"></p>
+<blockquote>
+<p>x_0 是偏置单元，一般每一层都会加入一个偏置单元（也称作偏置项）</p>
+</blockquote>
+<p>（以下解释参见：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/305340182/answer/721739423%EF%BC%89">https://www.zhihu.com/question/305340182/answer/721739423）</a></p>
+<p>在神经网络中，以<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=sigmoid%E5%87%BD%E6%95%B0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:721739423%7D">sigmoid函数</a>为例，加入偏置后也是增加了函数的灵活性，提高了神经元的拟合能力。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic2.zhimg.com/50/v2-56eb6c184c6c51bee461a714a0f2e7d9_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>在神经元中，output  =  sum (weights * inputs) + bias。<strong>偏置实际上是对神经元激活状态的控制</strong>。比如在上图中，当偏置为20时，x较小时y的值就可以很大，就可以较快的将该神经元激活。</p>
+<p>以此设计出类似神经元的神经网络：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://s2.loli.net/2022/01/14/XyOij9No5qgG7RY.jpg" alt="模型.jpg"></p>
+<p>神经网络模型是许多逻辑单元按照不同层级组织起来的网络，每一层的输出变量都是下一层的输入变量。下图为一个3层的神经网络，第一层成为输入层（<strong>Input Layer</strong>），最后一层称为输出层（<strong>Output Layer</strong>），中间一层成为隐藏层（<strong>Hidden Layers</strong>）。我们为每一层都增加一个偏差单位（<strong>bias unit</strong>）：</p>
+<p>下面引入一些标记法来帮助描述模型：</p>
+<p>$a_{i}^{\left( j \right)}$ 代表第$j$ 层的第 $i$ 个激活单元。${{\theta }^{\left( j \right)}}$代表从第 $j$ 层映射到第$ j+1$ 层时的权重的矩阵，例如${{\theta }^{\left( 1 \right)}}$代表从第一层映射到第二层的权重的矩阵。其尺寸为：以第 $j+1$层的激活单元数量为行数，以第 $j$ 层的激活单元数加一为列数的矩阵。例如：上图所示的神经网络中${{\theta }^{\left( 1 \right)}}$的尺寸为 3*4 –&gt; （3，4） @ （4，1） = （3，1）</p>
+<blockquote>
+<p>前向传播算法：（神经网络从左向右）</p>
+<p>$a_{1}^{(2)}=g(\Theta _{10}^{(1)}{{x}_{0}}+\Theta _{11}^{(1)}{{x}_{1}}+\Theta _{12}^{(1)}{{x}_{2}}+\Theta _{13}^{(1)}{{x}_{3}})$</p>
+<p>$a_{2}^{(2)}=g(\Theta _{20}^{(1)}{{x}_{0}}+\Theta _{21}^{(1)}{{x}_{1}}+\Theta _{22}^{(1)}{{x}_{2}}+\Theta _{23}^{(1)}{{x}_{3}})$</p>
+<p>$a_{3}^{(2)}=g(\Theta _{30}^{(1)}{{x}_{0}}+\Theta _{31}^{(1)}{{x}_{1}}+\Theta _{32}^{(1)}{{x}_{2}}+\Theta _{33}^{(1)}{{x}_{3}})$</p>
+<p>${{h}_{\Theta }}(x)=g(\Theta <em>{10}^{(2)}a</em>{0}^{(2)}+\Theta <em>{11}^{(2)}a</em>{1}^{(2)}+\Theta <em>{12}^{(2)}a</em>{2}^{(2)}+\Theta <em>{13}^{(2)}a</em>{3}^{(2)})$</p>
+<p>矩阵表示：</p>
+<p>$\theta \cdot X=a$ </p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://s2.loli.net/2022/01/14/x85VCDQj3rpgILo.png" alt="公式"></p>
+<p>令 ${{z}^{\left( 2 \right)}}={{\theta }^{\left( 1 \right)}}x$，则 ${{a}^{\left( 2 \right)}}=g({{z}^{\left( 2 \right)}})$ ，计算后添加 $a_{0}^{\left( 2 \right)}=1$</p>
+<p>${{z}^{\left( 3 \right)}}={{\theta }^{\left( 2 \right)}}{{a}^{\left( 2 \right)}}$，则 $h_\theta(x)={{a}^{\left( 3 \right)}}=g({{z}^{\left( 3 \right)}})$</p>
+<p>然后这只是针对训练集中的一行进行计算，如果针对整个训练集，则需要进行转置，即：</p>
+<p>${{z}^{\left( 2 \right)}}={{\Theta }^{\left( 1 \right)}}\times {{X}^{T}}$</p>
+<p> ${{a}^{\left( 2 \right)}}=g({{z}^{\left( 2 \right)}})$</p>
+<p>其实神经网络就像是<strong>logistic regression</strong>，只不过我们把<strong>logistic regression</strong>中的输入向量$\left[ x_1\sim {x_3} \right]$ 变成了中间层的$\left[ a_1^{(2)}\sim a_3^{(2)} \right]$, 即:  $h_\theta(x)=g\left( \Theta_0^{\left( 2 \right)}a_0^{\left( 2 \right)}+\Theta_1^{\left( 2 \right)}a_1^{\left( 2 \right)}+\Theta_{2}^{\left( 2 \right)}a_{2}^{\left( 2 \right)}+\Theta_{3}^{\left( 2 \right)}a_{3}^{\left( 2 \right)} \right)$ </p>
+<p>我们可以把$a_0, a_1, a_2, a_3$看成更为高级的特征值，也就是$x_0, x_1, x_2, x_3$的进化体，并且它们是由 $x$与$\theta$决定的，因为是梯度下降的，所以$a$是变化的，并且变得越来越厉害，所以这些更高级的特征值远比仅仅将 $x$次方厉害，也能更好的预测新数据。</p>
+<p>这就是神经网络相比于逻辑回归和线性回归的优势。</p>
+<h3 id="1-2-代价函数"><a href="#1-2-代价函数" class="headerlink" title="1.2 代价函数"></a>1.2 代价函数</h3><p>在逻辑回归中，我们只有一个输出变量，又称标量（<strong>scalar</strong>），也只有一个因变量$y$，但是在神经网络中，我们可以有很多输出变量，我们的$h_\theta(x)$是一个维度为$K$的向量，并且我们训练集中的因变量也是同样维度的一个向量，因此我们的代价函数会比逻辑回归更加复杂一些，为：$\newcommand{\subk}[1]{ #1_k }$</p>
+<p>$h_\theta\left(x\right)\in \mathbb{R}^{K}$</p>
+<p> ${\left({h_\theta}\left(x\right)\right)}_{i}={i}^{th} \text{output}$</p>
+<p>$J(\Theta) = -\frac{1}{m} \left[ \sum\limits_{i=1}^{m} \sum\limits_{k=1}^{k} {y_k}^{(i)} \log {(h_\Theta(x^{(i)}))<em>k} + \left( 1 - y_k^{(i)} \right) \log \left( 1- {\left( h_\Theta \left( x^{(i)} \right) \right)<em>k} \right) \right] + \frac{\lambda}{2m} \sum\limits</em>{l=1}^{L-1} \sum\limits</em>{i=1}^{s_l} \sum\limits_{j=1}^{s_{l+1}} \left( \Theta_{ji}^{(l)} \right)^2$</p>
+<h3 id="1-3-反向传播算法"><a href="#1-3-反向传播算法" class="headerlink" title="1.3 反向传播算法"></a>1.3 反向传播算法</h3><p>之前我们在计算神经网络预测结果的时候我们采用了一种正向传播方法，我们从第一层开始正向一层一层进行计算，直到最后一层的$h_{\theta}\left(x\right)$。</p>
+<p>现在，为了计算代价函数的偏导数$\frac{\partial}{\partial\Theta^{(l)}_{ij}}J\left(\Theta\right)$，我们需要采用一种反向传播算法，也就是首先计算最后一层的误差，然后再一层一层反向求出各层的误差，直到倒数第二层。</p>
+<p>以一个例子来说明反向传播算法。</p>
+<p>假设我们的训练集只有一个样本$\left({x}^{(1)},{y}^{(1)}\right)$，我们的神经网络是一个四层的神经网络，其中$K=4，S_{L}=4，L=4$，对每一层的输出单元（我们用$\delta$来表示误差）：</p>
+<ul>
+<li><p>$\delta^{(4)}=a^{(4)}-y$</p>
+</li>
+<li><p>$\delta^{(3)}=\left({\Theta^{(3)}}\right)^{T}\delta^{(4)}\ast g’\left(z^{(3)}\right)$，其中$g’(z^{(3)})$是 $S$ 形函数的导数，$g’(z^{(3)})=a^{(3)}\ast(1-a^{(3)})$。而$(θ^{(3)})^{T}\delta^{(4)}$则是权重导致的误差的和。</p>
+</li>
+<li><p>$\delta^{(2)}=(\Theta^{(2)})^{T}\delta^{(3)}\ast g’(z^{(2)})$</p>
+</li>
+<li><p>第一层是输入，无误差</p>
+</li>
+<li><p>最后：假设$λ=0$，即我们不做任何正则化处理时有：</p>
+<p>$\frac{\partial}{\partial\Theta_{ij}^{(l)}}J(\Theta)=a_{j}^{(l)} \delta_{i}^{l+1}$</p>
+<blockquote>
+<p>$l$ 代表目前所计算的是第几层。</p>
+<p>$j$ 代表目前计算层中的激活单元的下标，也将是下一层的第$j$个输入变量的下标。</p>
+<p>$i$ 代表下一层中误差单元的下标，是受到权重矩阵中第$i$行影响的下一层中的误差单元的下标。</p>
+</blockquote>
+<p>code：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient</span>(<span class="params">theta, X, y</span>):</span> <span class="comment"># 求 j_theta 对 theta 的偏导数， 对应课件 backpropagation algorithm</span></span><br><span class="line">    <span class="comment"># initialize</span></span><br><span class="line">    t1, t2 = deserialize(theta)  <span class="comment"># t1: (25,401) t2: (10,26)</span></span><br><span class="line">    m = X.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    delta1 = np.zeros(t1.shape)  <span class="comment"># (25, 401)</span></span><br><span class="line">    delta2 = np.zeros(t2.shape)  <span class="comment"># (10, 26)</span></span><br><span class="line"></span><br><span class="line">    a1, z2, a2, z3, h = feed_forward(theta, X)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        <span class="comment"># 第 i 个样本的相关参数</span></span><br><span class="line">        a1i = a1[i, :]  <span class="comment"># (1, 401)</span></span><br><span class="line">        z2i = z2[i, :]  <span class="comment"># (1, 25)</span></span><br><span class="line">        a2i = a2[i, :]  <span class="comment"># (1, 26)</span></span><br><span class="line"></span><br><span class="line">        hi = h[i, :]    <span class="comment"># (1, 10)</span></span><br><span class="line">        yi = y[i, :]    <span class="comment"># (1, 10)</span></span><br><span class="line"></span><br><span class="line">        d3i = hi - yi  <span class="comment"># (1, 10)</span></span><br><span class="line">        z2i = np.insert(z2i, <span class="number">0</span>, np.ones(<span class="number">1</span>))  <span class="comment"># make it (1, 26) to compute d2i, 添加偏置项</span></span><br><span class="line">        d2i = np.multiply(t2.T @ d3i, sigmoid_gradient(z2i))</span><br><span class="line">        </span><br><span class="line">        delta2 += np.matrix(d3i).T @ np.matrix(a2i)  <span class="comment"># (1, 10).T @ (1, 26) -&gt; (10, 26)</span></span><br><span class="line">        delta1 += np.matrix(d2i[<span class="number">1</span>:]).T @ np.matrix(a1i) <span class="comment"># (1, 25).T @ (1, 401) -&gt; (25, 401)</span></span><br><span class="line">    </span><br><span class="line">    delta1  = delta1 / m</span><br><span class="line">    delta2 = delta2 / m</span><br><span class="line">    <span class="keyword">return</span> serialize(delta1, delta2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">HLY</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cddorz.github.io/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/">https://cddorz.github.io/2021/01/14/machine-learning%EF%BC%88%E4%B8%89%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cddorz.github.io" target="_blank">HLY-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Neural-Network/">Neural Network</a></div><div class="post_share"><div class="social-share" data-image="https://img0.baidu.com/it/u=728045523,3008166041&amp;fm=26&amp;fmt=auto" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/03/10/%E7%BB%83%E6%89%8B%E8%AE%B0%E5%BD%95/"><img class="prev-cover" data-lazy-src="https://pic1.zhimg.com/80/v2-39991d03db9215ec8781bc774341034c_720w.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">练手记录</div></div></a></div><div class="next-post pull-right"><a href="/2020/12/01/token%E3%80%81session%E3%80%81cookie/"><img class="next-cover" data-lazy-src="https://pic1.zhimg.com/80/v2-e9553dfe572e71ba82811a3dad2def52_720w.jpg?source=1940ef5c" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">token、session、cookie那些事</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/tubiao.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">HLY</div><div class="author-info__description">人生未完成...</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cddorz"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/orzcdd" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2878153350@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">西电大三考研狗。后端菜狗，觉得业务太无聊了，转AI。</div></div></div><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-paw fa-spin"></i><span>历史上的今天</span></div><div id="history-news" style="height: 100px;overflow: hidden;"><div id="history-card"></div></div></div></div><div class="card-widget card-recent-post"><div id="gamenews"><div class="card-content"><div class="item-headline"><i class="fas fa-cube"></i><span>ROLL资讯</span><i class="fas fa-retweet" @click="changetype(current)" style="float:right;margin-top:8px"></i></div><div class="newsbar"><span v-for="(type, index) in listtype" v-on:click="addClass(index)" v-bind:class="{ listtypeon:index==current}">{{type}}</span></div><div class="aside-list"><div class="aside-list-item" v-for="(news,index) in newsvue"><a class="thumbnail" href="javascript:void(0)" @click="getnewsdata(index)" :title="news.title"><img class="loaded" onerror="this.onerror=null;this.src='/img/404.jpg'" data-ll-status="loaded" :src="news.imgList[0]"/></a><div class="content"><a class="title" href="javascript:void(0)" @click="getnewsdata(index)" :title="news.title">{{news.title}}</a><time>{{news.postTime}}</time></div></div></div></div><div id="newsmodal"><button class="modalclose" @click="hidemodle()">关闭</button><h2>{{newpostvue.title}} </h2><h4>{{newpostvue.ptime}} &nbsp;&nbsp; {{newpostvue.source}}</h4><div v-html="newpostvue.content"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E6%A8%A1%E5%9E%8B%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">1.1模型表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 代价函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 反向传播算法</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/31/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" title="年终总结"><img data-lazy-src="https://pica.zhimg.com/80/v2-1b71cad1e84d680d42d5d253aaa2719f_720w.jpg?source=1940ef5c" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="年终总结"/></a><div class="content"><a class="title" href="/2021/12/31/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" title="年终总结">年终总结</a><time datetime="2021-12-31T10:23:30.000Z" title="发表于 2021-12-31 18:23:30">2021-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/29/machine-learning%EF%BC%88%E4%BA%8C%EF%BC%89/" title="machine-learning（二）"><img data-lazy-src="https://img0.baidu.com/it/u=728045523,3008166041&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="machine-learning（二）"/></a><div class="content"><a class="title" href="/2021/12/29/machine-learning%EF%BC%88%E4%BA%8C%EF%BC%89/" title="machine-learning（二）">machine-learning（二）</a><time datetime="2021-12-29T14:47:39.000Z" title="发表于 2021-12-29 22:47:39">2021-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/21/machine-learning/" title="machine-learning（一）"><img data-lazy-src="https://img0.baidu.com/it/u=728045523,3008166041&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="machine-learning（一）"/></a><div class="content"><a class="title" href="/2021/12/21/machine-learning/" title="machine-learning（一）">machine-learning（一）</a><time datetime="2021-12-21T14:47:39.000Z" title="发表于 2021-12-21 22:47:39">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/06/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img data-lazy-src="https://pic4.zhimg.com/80/v2-3c93265c69c1e73580fcaaa6ea83d8db_720w.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/2021/09/06/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2021-09-06T02:20:15.000Z" title="发表于 2021-09-06 10:20:15">2021-09-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/31/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="算法总结"><img data-lazy-src="https://pic1.zhimg.com/80/v2-39991d03db9215ec8781bc774341034c_720w.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法总结"/></a><div class="content"><a class="title" href="/2021/05/31/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="算法总结">算法总结</a><time datetime="2021-05-31T02:53:05.000Z" title="发表于 2021-05-31 10:53:05">2021-05-31</time></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://img0.baidu.com/it/u=728045523,3008166041&amp;fm=26&amp;fmt=auto)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By HLY</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><span id="runtime"></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'wVtvHWcQyk4142xnTO44te1Q-gzGzoHsz',
+      appKey: 'sFGRGhXB5BisLaQGUEs5JVPv',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/clock/js/clock.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="/news/js/keys.js"></script><script src="/news/js/news.js"></script><script src="/js/history.js"></script><script src="/js/historyroll.js"></script><script src="/js/flipcountdown.js"></script><script data-pjax src="/js/runtime.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
